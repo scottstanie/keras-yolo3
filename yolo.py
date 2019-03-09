@@ -164,13 +164,13 @@ class YOLO(object):
             # My kingdom for a good redistributable image drawing library.
             for i in range(thickness):
                 draw.rectangle([left + i, top + i, right - i, bottom - i], outline=self.colors[c])
-            draw.rectangle([tuple(text_origin), tuple(text_origin + label_size)],
-                           fill=self.colors[c])
+            draw.rectangle(
+                [tuple(text_origin), tuple(text_origin + label_size)], fill=self.colors[c])
             draw.text(text_origin, label, fill=(0, 0, 0), font=font)
             del draw
 
         end = timer()
-        print('Time: %f' % end - start)
+        print('Time: %f' % (end - start))
         return image
 
     def close_session(self):
